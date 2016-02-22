@@ -1,3 +1,3 @@
 # Design Patterns
 
-Design pattern examples
+Exploring common patterns and implementations.
