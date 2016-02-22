@@ -1,0 +1,22 @@
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "description": "Exploring common patterns and implementations.",
+  "main": "scaff.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iAmNathanJ/design-patterns.git"
+  },
+  "author": "Nathan Jacobs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iAmNathanJ/design-patterns/issues"
+  },
+  "homepage": "https://github.com/iAmNathanJ/design-patterns#readme",
+  "dependencies": {
+    "lodash": "^4.5.0"
+  }
+}
