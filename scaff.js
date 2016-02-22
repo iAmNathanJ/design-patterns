@@ -5,17 +5,35 @@
 const _ = require('lodash')
     , fs = require('fs')
     , mkdir = fs.mkdirSync
-    , read = fs.readFileSync
+    , readFile = fs.readFileSync
     , write = fs.writeFileSync;
 
-const ERR = (err) => {
-  if(err) console.error(err);
-};
+// let config = {
+//   entry: './templates',
+//   files: [ 'index', pattern, 'test' ],
+//   create: {
+//     js: { ext: 'js' },
+//     ruby: { ext: 'rb' },
+//   },
+//   dest: './'
+// };
 
 let base = process.argv[2]
   , pattern = base
-  , languages = [ 'js', 'ruby']
+  , languages = [ 'js', 'ruby' ]
   , ext = { js: 'js', ruby: 'rb' };
+
+const ERR = (e) => {
+  if(e) console.error(e.message);
+};
+
+function read(file) {
+  try {
+    return readFile(file);
+  } catch(e) {
+    ERR(e);
+  }
+}
 
 function getTemplate(file, data) {
   let tmpl = _.template(read(file));
