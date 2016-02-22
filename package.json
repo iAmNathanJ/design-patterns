@@ -4,7 +4,7 @@
   "description": "Exploring common patterns and implementations.",
   "main": "scaff.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./test.sh"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/iAmNathanJ/design-patterns#readme",
   "dependencies": {
+    "ava": "^0.12.0",
     "lodash": "^4.5.0"
   }
 }
