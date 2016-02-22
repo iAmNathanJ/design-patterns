@@ -2,7 +2,8 @@
 
 'use strict';
 
-const fs = require('fs')
+const _ = require('lodash')
+    , fs = require('fs')
     , mkdir = fs.mkdirSync
     , read = fs.readFileSync
     , write = fs.writeFileSync;
@@ -16,8 +17,17 @@ let base = process.argv[2]
   , languages = [ 'js', 'ruby']
   , ext = { js: 'js', ruby: 'rb' };
 
-function getScaffold(name, ext) {
-  return name === pattern ? read(`./scaffold/pattern.${ext}`) : read(`./scaffold/${name}.${ext}`)
+function getTemplate(file, data) {
+  let tmpl = _.template(read(file));
+  return tmpl(data);
+}
+
+function scaffold(name, ext) {
+  if(name === pattern) {
+    return getTemplate(`./templates/pattern.${ext}`, { pattern: pattern });
+  } else {
+    return getTemplate(`./templates/${name}.${ext}`, { pattern: pattern });
+  }
 }
 
 let files = [ 'index', pattern, 'test' ];
@@ -27,7 +37,8 @@ mkdir(base, ERR);
 for(let lang of languages) {
   mkdir(`${base}/${lang}`, ERR);
   files.forEach((file) => {
-    let scaffold = getScaffold(file, ext[lang]);
-    write(`./${base}/${lang}/${file}.${ext[lang]}`, scaffold);
+    let scaff = scaffold(file, ext[lang]);
+    let fileName = (lang === 'ruby') ? _.snakeCase(file) : file;
+    write(`./${base}/${lang}/${fileName}.${ext[lang]}`, scaff);
   });
 }
