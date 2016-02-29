@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/iAmNathanJ/design-patterns#readme",
   "dependencies": {
-    "ava": "^0.12.0",
-    "lodash": "^4.5.0"
+    "lodash": "^4.5.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
   }
 }
