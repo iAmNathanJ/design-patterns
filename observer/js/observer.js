@@ -1,4 +1,5 @@
 module.exports = (function observer() {
+
   'use strict';
 
   let subject = function() {
